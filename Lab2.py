@@ -6,18 +6,16 @@ def esc(code):
 def flag():
     for i in range(3):
         print(GREEN + '  ' * 35 + END)
-    for i in range(1):
-        print(GREEN + '  ' * 15 + RED + '  ' * 4 + GREEN + '  ' * 16 + END)
-        print(GREEN + '  ' * 14 + RED + '  ' * 6 + GREEN + '  ' * 15 + END)
-        print(GREEN + '  ' * 13 + RED + '  ' * 8 + GREEN + '  ' * 14 + END)
-        print(GREEN + '  ' * 12 + RED + '  ' * 10 + GREEN + '  ' * 13 + END)
+    print(GREEN + '  ' * 15 + RED + '  ' * 4 + GREEN + '  ' * 16 + END)
+    print(GREEN + '  ' * 14 + RED + '  ' * 6 + GREEN + '  ' * 15 + END)
+    print(GREEN + '  ' * 13 + RED + '  ' * 8 + GREEN + '  ' * 14 + END)
+    print(GREEN + '  ' * 12 + RED + '  ' * 10 + GREEN + '  ' * 13 + END)
     for i in range(3):
         print(GREEN + '  ' * 11 + RED + '  ' * 12 + GREEN + '  ' * 12 + END)
-    for i in range(1):
-        print(GREEN + '  ' * 12 + RED + '  ' * 10 + GREEN + '  ' * 13 + END)
-        print(GREEN + '  ' * 13 + RED + '  ' * 8 + GREEN + '  ' * 14 + END)
-        print(GREEN + '  ' * 14 + RED + '  ' * 6 + GREEN + '  ' * 15 + END)
-        print(GREEN + '  ' * 15 + RED + '  ' * 4 + GREEN + '  ' * 16 + END)
+    print(GREEN + '  ' * 12 + RED + '  ' * 10 + GREEN + '  ' * 13 + END)
+    print(GREEN + '  ' * 13 + RED + '  ' * 8 + GREEN + '  ' * 14 + END)
+    print(GREEN + '  ' * 14 + RED + '  ' * 6 + GREEN + '  ' * 15 + END)
+    print(GREEN + '  ' * 15 + RED + '  ' * 4 + GREEN + '  ' * 16 + END)
     for i in range(3):
         print(GREEN + '  ' * 35 + END)
 
@@ -32,16 +30,11 @@ flag()
 
 def uzor():
     n = 5
-    for i in range(1):
-        print(WHITE + ' ' * 3 + n * (RED + ' ' * 15 + WHITE + ' ' * 6) + END)
-    for i in range(1):
-        print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 9 + RED + ' ' * 3 + WHITE + ' ' * 6) + END)
-    for i in range(1):
-        print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 3 + RED + ' ' * 9 + WHITE + ' ' * 6) + END)
-    for i in range(1):
-        print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 3 + RED + ' ' * 3 + WHITE + ' ' * 12) + END)
-    for i in range(1):
-        print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 3 + RED + ' ' * 15) + END)
+    print(WHITE + ' ' * 3 + n * (RED + ' ' * 15 + WHITE + ' ' * 6) + END)
+    print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 9 + RED + ' ' * 3 + WHITE + ' ' * 6) + END)
+    print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 3 + RED + ' ' * 9 + WHITE + ' ' * 6) + END)
+    print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 3 + RED + ' ' * 3 + WHITE + ' ' * 12) + END)
+    print(WHITE + ' ' * 3 + n * (RED + ' ' * 3 + WHITE + ' ' * 3 + RED + ' ' * 15) + END)
 
 
 uzor()
