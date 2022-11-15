@@ -12,7 +12,7 @@ stuffdict = {'в': (3, 25),
              'р': (2, 20)
              }
 
-start_value = 15
+start_value = 10
 result_value = 0
 
 
