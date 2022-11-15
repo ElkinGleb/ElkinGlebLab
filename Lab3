@@ -12,7 +12,7 @@ stuffdict = {'в': (3, 25),
              'р': (2, 20)
              }
 
-start_value = 10
+start_value = 15
 result_value = 0
 
 
@@ -23,7 +23,7 @@ def get_area_and_value(stuffdict):
     return area, value, summ
 
 
-def get_memtable(stuffdict, A=9):
+def get_memtable(stuffdict, A=8):
     area, value, summ = get_area_and_value(stuffdict)
     n = len(value)
     V = [[0 for a in range(A + 1)] for i in range(n + 1)]
@@ -77,8 +77,8 @@ def get_selected_items_list(stuffdict, A):
 stuff, mas = get_selected_items_list(stuffdict, 8)
 V, area, value, = get_memtable(stuffdict)
 summ1 = sum(value) - abs(V[-1][-1])  # сумма взятых предметов
-result_value = summ1 - abs(V[-1][-1]) + start_value + 5
-print(mas[:3])
+result_value = summ1 - abs(V[-1][-1]) + start_value
+print(mas[0:3])
 print(mas[3:6])
-print(mas[6:])
+print(mas[6:9])
 print('Итоговые очки выживания:', result_value)
