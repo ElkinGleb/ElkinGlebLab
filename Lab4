@@ -1,0 +1,69 @@
+from pygame import mixer
+import random
+mixer.init()
+mixer.music.load('8bit.mp3')
+
+mixer.music.play()
+
+from tkinter import *
+
+root = Tk()
+root.geometry("1600x900")
+
+canvas = Canvas(root, width=1600, height=500)
+canvas.pack()
+
+bg_obj = PhotoImage(file="pngwing.com.png")
+bg_img = canvas.create_image(50,50,anchor=NW,image=bg_obj)
+
+pirateship_obj = PhotoImage(file="pirateship.png")
+id_img = canvas.create_image(50,50,anchor=NW,image=pirateship_obj)
+print(id_img)
+
+import time
+for i in range(1,500):
+    canvas.move(id_img,2,0)
+    root.update()
+    time.sleep(0.01)
+
+
+from pygame import mixer
+
+mixer.init()
+mixer.music.load('8bit.mp3')
+
+mixer.music.play()
+
+
+def generate():
+    key_label.delete(0, END)
+    key = ''
+    blob = ''
+    check_digit_count = 0
+    alphabet = 'ABCDEFGHIJKLMNOPQRWSTUVWXYZ'
+    numbers = '1234567890'
+
+    while len(key) < 20:
+        char = random.choice(numbers)
+        for i in range (3):
+            char += random.choice(alphabet)
+        x = list(char)
+        random.shuffle(x)
+        ''.join(x)
+        key += ''.join(x)
+        blob += ''.join(x)
+        if len(blob) == 4:
+            key += '-'
+            blob = ''
+    key = key[:-1]
+    key_label.insert(0,key)
+
+generate_button = Button(root, text="Generate Key", font=("Helvetica", 32), command=generate)
+generate_button.pack(pady=50)
+
+key_label = Entry(root, font=("Helvetica", 24), bd=0, bg="systembuttonface", width=23)
+key_label.pack(pady=50)
+
+key_label.delete(0,END)
+
+root.mainloop()
