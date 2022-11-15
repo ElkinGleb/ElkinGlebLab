@@ -1,6 +1,6 @@
 from pygame import mixer
 import random
-mixer.init()
+mixer.init()                        #музыка
 mixer.music.load('8bit.mp3')
 
 mixer.music.play()
@@ -8,7 +8,7 @@ mixer.music.play()
 from tkinter import *
 
 root = Tk()
-root.geometry("1600x900")
+root.geometry("1600x900")                    #фон + анимация
 
 canvas = Canvas(root, width=1600, height=500)
 canvas.pack()
@@ -26,20 +26,10 @@ for i in range(1,500):
     root.update()
     time.sleep(0.01)
 
-
-from pygame import mixer
-
-mixer.init()
-mixer.music.load('8bit.mp3')
-
-mixer.music.play()
-
-
 def generate():
-    key_label.delete(0, END)
+    key_label.delete(0, END)                    #генерация + выполнение условий вариант 2
     key = ''
-    blob = ''
-    check_digit_count = 0
+    blob = ''                                 
     alphabet = 'ABCDEFGHIJKLMNOPQRWSTUVWXYZ'
     numbers = '1234567890'
 
@@ -58,10 +48,10 @@ def generate():
     key = key[:-1]
     key_label.insert(0,key)
 
-generate_button = Button(root, text="Generate Key", font=("Helvetica", 32), command=generate)
+generate_button = Button(root, text="Generate Key", font=("Helvetica", 32), command=generate)    # кнопка
 generate_button.pack(pady=50)
 
-key_label = Entry(root, font=("Helvetica", 24), bd=0, bg="systembuttonface", width=23)
+key_label = Entry(root, font=("Helvetica", 24), bd=0, bg="systembuttonface", width=23)      #вывод ключа
 key_label.pack(pady=50)
 
 key_label.delete(0,END)
