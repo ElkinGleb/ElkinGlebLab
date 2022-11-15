@@ -2,7 +2,7 @@ stuffdict = {'в': (3, 25),
              'п': (2, 15),
              'б': (2, 15),
              'а': (2, 20),
-             'и': (1, 5),
+             'и': (1, 5+45),
              'н': (1, 15),
              'т': (3, 20),
              'о': (1, 25),
@@ -23,7 +23,7 @@ def get_area_and_value(stuffdict):
     return area, value, summ
 
 
-def get_memtable(stuffdict, A=8):
+def get_memtable(stuffdict, A=9):
     area, value, summ = get_area_and_value(stuffdict)
     n = len(value)
     V = [[0 for a in range(A + 1)] for i in range(n + 1)]
@@ -62,7 +62,6 @@ def get_selected_items_list(stuffdict, A):
 
     selected_stuff = []
     mas = []
-    mas.append(['и'])
     # находим ключи исходного словаря - названия предметов
     for search in items_list:
         for key, value in stuffdict.items():
@@ -74,10 +73,10 @@ def get_selected_items_list(stuffdict, A):
     return selected_stuff, mas
 
 
-stuff, mas = get_selected_items_list(stuffdict, 8)
+stuff, mas = get_selected_items_list(stuffdict, 9)
 V, area, value, = get_memtable(stuffdict)
 summ1 = sum(value) - abs(V[-1][-1])  # сумма взятых предметов
-result_value = summ1 - abs(V[-1][-1]) + start_value
+result_value = summ1 - 45 - abs(V[-1][-1]) + start_value
 print(mas[0:3])
 print(mas[3:6])
 print(mas[6:9])
