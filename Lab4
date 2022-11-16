@@ -1,14 +1,15 @@
+from tkinter import *
 from pygame import mixer
 import random
-mixer.init()                        #музыка
-mixer.music.load('8bit.mp3')
+import time
 
+mixer.init()     #музыка
+mixer.music.load('8bit.mp3')
 mixer.music.play()
 
-from tkinter import *
-
+#фон + анимация
 root = Tk()
-root.geometry("1600x900")                    #фон + анимация
+root.geometry("1600x900")
 
 canvas = Canvas(root, width=1600, height=500)
 canvas.pack()
@@ -20,40 +21,51 @@ pirateship_obj = PhotoImage(file="pirateship.png")
 id_img = canvas.create_image(50,50,anchor=NW,image=pirateship_obj)
 print(id_img)
 
-import time
 for i in range(1,500):
     canvas.move(id_img,2,0)
     root.update()
     time.sleep(0.01)
 
+# списки символов
 def generate():
-    key_label.delete(0, END)                    #генерация + выполнение условий вариант 2
+    key_label.delete(0, END)
     key = ''
-    blob = ''                                 
+    blob = ''
     alphabet = 'ABCDEFGHIJKLMNOPQRWSTUVWXYZ'
     numbers = '1234567890'
 
     while len(key) < 20:
+        # выбираем 1 рандомную цифру
         char = random.choice(numbers)
+
+        # выбираем 3 рандомные буквы и добавляем их
         for i in range (3):
             char += random.choice(alphabet)
-        x = list(char)
-        random.shuffle(x)
-        ''.join(x)
-        key += ''.join(x)
-        blob += ''.join(x)
+
+        # конвертация + перемешивание
+        NumLett = list(char)
+        random.shuffle(NumLett)
+        ''.join(NumLett)
+        key += ''.join(NumLett)
+        blob += ''.join(NumLett)
+
         if len(blob) == 4:
             key += '-'
             blob = ''
     key = key[:-1]
     key_label.insert(0,key)
 
-generate_button = Button(root, text="Generate Key", font=("Helvetica", 32), command=generate)    # кнопка
+# кнопка
+generate_button = Button(root, text="Generate Key", font=("Helvetica", 32),
+                         command=generate)
 generate_button.pack(pady=50)
 
-key_label = Entry(root, font=("Helvetica", 24), bd=0, bg="systembuttonface", width=23)      #вывод ключа
+# вывод ключа
+key_label = Entry(root, font=("Helvetica", 24), bd=0, bg="systembuttonface",
+                  width=23)
 key_label.pack(pady=50)
 
+# очистка поля
 key_label.delete(0,END)
 
 root.mainloop()
