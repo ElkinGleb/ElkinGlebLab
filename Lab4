@@ -1,30 +1,33 @@
-from tkinter import *
+import tkinter as tk
+from tkinter import Canvas, PhotoImage, NW, END, Button, Entry
 from pygame import mixer
 import random
 import time
 
-mixer.init()     #музыка
+# музыка
+mixer.init()
 mixer.music.load('8bit.mp3')
 mixer.music.play()
 
-#фон + анимация
-root = Tk()
+# фон + анимация
+root = tk.Tk()
 root.geometry("1600x900")
 
 canvas = Canvas(root, width=1600, height=500)
 canvas.pack()
 
 bg_obj = PhotoImage(file="pngwing.com.png")
-bg_img = canvas.create_image(50,50,anchor=NW,image=bg_obj)
+bg_img = canvas.create_image(50, 50, anchor=NW, image=bg_obj)
 
 pirateship_obj = PhotoImage(file="pirateship.png")
-id_img = canvas.create_image(50,50,anchor=NW,image=pirateship_obj)
+id_img = canvas.create_image(50, 50, anchor=NW, image=pirateship_obj)
 print(id_img)
 
-for i in range(1,500):
-    canvas.move(id_img,2,0)
+for i in range(1, 500):
+    canvas.move(id_img, 2, 0)
     root.update()
     time.sleep(0.01)
+
 
 # списки символов
 def generate():
@@ -39,21 +42,22 @@ def generate():
         char = random.choice(numbers)
 
         # выбираем 3 рандомные буквы и добавляем их
-        for i in range (3):
+        for i in range(3):
             char += random.choice(alphabet)
 
         # конвертация + перемешивание
-        NumLett = list(char)
-        random.shuffle(NumLett)
-        ''.join(NumLett)
-        key += ''.join(NumLett)
-        blob += ''.join(NumLett)
+        x = list(char)
+        random.shuffle(x)
+        ''.join(x)
+        key += ''.join(x)
+        blob += ''.join(x)
 
         if len(blob) == 4:
             key += '-'
             blob = ''
     key = key[:-1]
-    key_label.insert(0,key)
+    key_label.insert(0, key)
+
 
 # кнопка
 generate_button = Button(root, text="Generate Key", font=("Helvetica", 32),
@@ -66,6 +70,7 @@ key_label = Entry(root, font=("Helvetica", 24), bd=0, bg="systembuttonface",
 key_label.pack(pady=50)
 
 # очистка поля
-key_label.delete(0,END)
+key_label.delete(0, END)
+
 
 root.mainloop()
